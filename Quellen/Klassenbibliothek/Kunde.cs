@@ -2,9 +2,11 @@
 {
     public class Kunde
     {
-        // Eigenschaften der Klasseninstanzen
-        public string Vorname { get; }
-        public string Nachname { get; }
+        // Les- und schreibbare Eigenschaften der Klasseninstanzen
+        public string Vorname { get; set; }
+        public string Nachname { get; set; }
+
+        // Nur lesbare Eigenschaften der Klasseninstanzen
         public DateTime Geburtstag { get; }
 
         // Konstruktor der Klasseninstanzen
@@ -24,3 +26,4 @@
         }
     }
 }
+

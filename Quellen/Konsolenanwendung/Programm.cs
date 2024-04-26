@@ -1,4 +1,5 @@
-﻿using System.Net.NetworkInformation;
+﻿using Klassenbibliothek;
+using System.Net.NetworkInformation;
 
 namespace Konsolenanwendung
 {
@@ -17,13 +18,13 @@ namespace Konsolenanwendung
 
             // Boolsche Rechnung mit Literalen
             var d = true && false;
-            
+
             // Numerische Rechnung mit Literalen
             var e = 1 + 5 * 7;
 
             // Geklammerte numerische Rechnung mit Literalen
             var f = (1 + 5) * 7;
-            
+
             // Boolsche Rechnung mit Variable
             var g = true || d;
 
@@ -89,11 +90,48 @@ namespace Konsolenanwendung
             while (k < 10);
 
             // Schleife mit kompakterer Schreibweise
-            for (var n = 0; n < 10; n++)
+            for (var l = 0; l < 10; l++)
             {
 
             }
 
+            // Schleife mit Werten
+            var m = new int[] { 1, 2, 3 };
+
+            foreach (var n in m)
+            {
+
+            }
+
+            // Funktionsaufruf mit Literalen
+            Addition(1, 2);
+
+            // Funktionsaufruf mit Operatoren
+            Subtraktion(1 + 2, 2);
+
+            // Funktionsaufruf mit Funktionsaufrufen
+            Multiplikation(Addition(1, 2), 2);
+
+            // Funktionsaufruf mit Variablen
+            var o = Subtraktion(1, 2);
+
+            Division(o, 2);
+
+            // Klasse Kunde instanziieren
+            var p = new Kunde("Max", "Muster", new DateTime(2010, 5, 15));
+            var q = new Kunde("Anna", "Muster", new DateTime(2015, 8, 21));
+
+            // Eigenschaften lesen
+            Console.WriteLine($"{p.Vorname} {p.Nachname}");
+            Console.WriteLine($"{q.Vorname} {q.Nachname}");
+
+            // Eigenschaften schreiben
+            p.Vorname = "Peter";
+            q.Vorname = "Julia";
+
+            // Methoden aufrufen
+            Console.WriteLine($"{p.Vorname} ist {p.Alter().TotalDays} Tage alt");
+            Console.WriteLine($"{q.Vorname} ist {q.Alter().TotalDays} Tage alt");
 
             Console.WriteLine(a);
             Console.WriteLine(b);
