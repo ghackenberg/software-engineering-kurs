@@ -1,0 +1,53 @@
+classDiagram
+
+    class Netzwerk {
+        <<Hardware und Software>>
+        +übertragen(Daten daten)
+    }
+
+    class Rechner1 {
+        <<Hardware>>
+        +Daten Zustand
+        +speichern(Daten daten)
+        +ausführen(Befehl befehl)
+    }
+    
+    class Rechner2 {
+        <<Hardware>>
+        +Daten Zustand
+        +speichern(Daten daten)
+        +ausführen(Befehl befehl)
+    }
+
+    class KomponenteA {
+        <<Software>>
+        +funktionA1(...)
+        +funktionA2(...)
+        +funktionA3(...)
+    }
+
+    class KomponenteB {
+        <<Software>>
+        +funktionB1(...)
+        +funktionB2(...)
+        +funktionB3(...)
+    }
+
+    class KomponenteC {
+        <<Software>>
+        +funktionC1(...)
+        +funktionC2(...)
+        +funktionC3(...)
+    }
+
+    KomponenteA ..> Rechner1: läuft auf
+    KomponenteB ..> Rechner2: läuft auf
+    KomponenteC ..> Rechner2: läuft auf
+
+    Rechner1 ..> Netzwerk: kommuniziert über
+    Rechner2 ..> Netzwerk: kommuniziert über
+
+    style Rechner1 fill:white
+    style Rechner2 fill:white
+
+    style Netzwerk fill:lightgreen,stroke:green

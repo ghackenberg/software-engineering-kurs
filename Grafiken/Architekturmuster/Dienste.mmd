@@ -1,0 +1,53 @@
+classDiagram
+
+    class Dienstverzeichnis {
+        
+        +List~Dienstschnittstellen~ Schnittstellen
+        +List~Dienst~ Dienste
+
+        +anmelden(Dienst dienst)
+        +abmelden(Dienst dienst)
+        +anfragen(Dienstschnittstelle schnittstelle)
+
+    }
+
+    class DienstschnittstelleA {
+        <<interface>>
+        +methodeA()
+    }
+
+    class DienstschnittstelleB {
+        <<interface>>
+        +methodeB()
+    }
+
+    class DienstA1 {
+        +methodeA()
+    }
+
+    class DienstA2 {
+        +methodeA()
+    }
+
+    class DienstB1 {
+        +methodeB()
+    }
+
+    class DienstB2 {
+        +methodeB()
+    }
+
+    Nutzer ..> Dienstverzeichnis: verwendet
+
+    Dienstverzeichnis ..> DienstschnittstelleA: verwaltet
+    Dienstverzeichnis ..> DienstschnittstelleB: verwaltet
+
+
+    DienstschnittstelleA <|-- DienstA1: implementiert
+    DienstschnittstelleA <|-- DienstA2: implementiert
+
+    DienstschnittstelleB <|-- DienstB1: implementiert
+    DienstschnittstelleB <|-- DienstB2: implementiert
+
+    style DienstschnittstelleA fill:white
+    style DienstschnittstelleB fill:white

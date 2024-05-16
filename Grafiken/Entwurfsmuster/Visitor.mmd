@@ -1,0 +1,51 @@
+classDiagram
+
+    class Nutzer {
+
+    }
+
+    class Struktur {
+
+    }
+
+    class Element {
+        <<interface>>
+    }
+
+    class ElementA {
+
+    }
+
+    class ElementB {
+
+    }
+
+    class Besucher {
+        <<interface>>
+        +besuche(element ElementA)
+        +besuche(element ElementB)
+    }
+
+    class KonkreterBesucherA["Konkreter Besucher A"] {
+        +besuche(element ElementA)
+        +besuche(element ElementB)
+    }
+
+    class KonkreterBesucherB["Konkreter Besucher B"] {
+        +besuche(element ElementA)
+        +besuche(element ElementB)
+    }
+
+    Nutzer ..> Struktur: verwendet
+    Nutzer ..> Besucher: verwendet
+
+    Struktur *--"n" Element: besteht aus
+
+    Element <|-- ElementA: ist ein
+    Element <|-- ElementB: ist ein
+
+    Besucher <|-- KonkreterBesucherA: implementiert
+    Besucher <|-- KonkreterBesucherB: implementiert
+
+    style Element fill:white
+    style Besucher fill:white

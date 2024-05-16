@@ -1,0 +1,45 @@
+classDiagram
+
+    class Broker {
+        <<Verwalter und Weiterleiter>>
+        +List~Komponente~ Anmeldungen
+        +anmelden(komponente Komponente)
+        +abmelden(komponente Komponente)
+        +weiterleiten(ereignis Ereignis)
+    }
+
+    class KomponenteA {
+        <<Sender und Empfänger>>
+        +senden(ereignis Ereignis)
+        +empfangen(ereignis Ereignis)
+    }
+
+    class KomponenteB {
+        <<Sender und Empfänger>>
+        +senden(ereignis Ereignis)
+        +empfangen(ereignis Ereignis)
+    }
+
+    class KomponenteC {
+        <<Sender und Empfänger>>
+        +senden(ereignis Ereignis)
+        +empfangen(ereignis Ereignis)
+    }
+
+    class KomponenteD {
+        <<Sender und Empfänger>>
+        +senden(ereignis Ereignis)
+        +empfangen(ereignis Ereignis)
+    }
+
+    KomponenteA ..> Broker: Sendung
+    KomponenteA <.. Broker: Weiterleitung
+
+    KomponenteB ..> Broker: Sendung
+    KomponenteB <.. Broker: Weiterleitung
+
+    Broker <.. KomponenteC: Sendung
+    Broker ..> KomponenteC: Weiterleitung
+
+    Broker <.. KomponenteD: Sendung
+    Broker ..> KomponenteD: Weiterleitung

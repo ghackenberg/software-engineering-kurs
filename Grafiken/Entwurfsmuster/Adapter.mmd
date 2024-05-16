@@ -1,0 +1,59 @@
+classDiagram
+
+    class Nutzer {
+
+    }
+
+    class AdapterAB {
+        +methodeA()
+    }
+
+    class AdapterAC {
+        +methodeA()
+    }
+
+    class DienstB {
+        +methodeB()
+    }
+
+    class DienstC {
+        +methodeC()
+    }
+
+    class SchnittstelleA {
+        <<interface>>
+        +methodeA()
+    }
+
+    class SchnittstelleB {
+        <<interface>>
+        +methodeB()
+    }
+
+    class SchnittstelleC {
+        <<interfabce>>
+        +methodeC()
+    }
+
+    Nutzer ..> AdapterAB: verwendet (1)
+
+    Nutzer ..> SchnittstelleA: benötigt
+
+    SchnittstelleA <|-- AdapterAB: implementiert
+    SchnittstelleA <|-- AdapterAC: implementiert
+
+    AdapterAB ..> DienstB: verwendet
+    AdapterAB ..> SchnittstelleB: benötigt
+
+    AdapterAC ..> DienstC: verwendet
+    AdapterAC ..> SchnittstelleC: benötigt
+
+    SchnittstelleB <|-- DienstB: implementiert
+
+    SchnittstelleC <|-- DienstC: implementiert
+
+    Nutzer ..> AdapterAC: verwendet (2)
+
+    style SchnittstelleA fill:white
+    style SchnittstelleB fill:white
+    style SchnittstelleC fill:white

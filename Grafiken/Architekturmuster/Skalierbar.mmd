@@ -1,0 +1,43 @@
+classDiagram
+
+    class Nutzer {
+
+    }
+
+    class LoadBalancer {
+        <<Hardware und Software>>
+        +verteilen(Anfrage anfrage)
+    }
+
+    class Dienst {
+        <<Software>>
+        +funktion(...)
+    }
+
+    class Rechner1 {
+        <<Hardware>>
+    }
+
+    class Rechner2 {
+        <<Hardware>>
+    }
+
+    class Rechner3 {
+        <<Hardware>>
+    }
+
+    Dienst ..> Rechner1: läuft auf
+    Dienst ..> Rechner2: läuft auf
+    Dienst ..> Rechner3: läuft auf
+
+    Rechner1 <.. LoadBalancer: verteilt an
+    Rechner2 <.. LoadBalancer: verteilt an
+    Rechner3 <.. LoadBalancer: verteilt an
+
+    LoadBalancer <.. Nutzer: verwendet
+    
+    style Rechner1 fill:white
+    style Rechner2 fill:white
+    style Rechner3 fill:white
+
+    style LoadBalancer fill:lightgreen,stroke:green

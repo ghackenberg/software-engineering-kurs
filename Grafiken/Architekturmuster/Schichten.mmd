@@ -1,0 +1,35 @@
+classDiagram
+
+    class Schicht1["Schicht 1 (z.B. Grafische Benutzerschnittstelle)"] {
+        +methodeA()
+    }
+
+    class Schicht2["Schicht 2 (z.B. Geschäftslogik)"] {
+        +methodeB()
+    }
+
+    class Schicht3["Schicht 3 (z.B. Datenbank)"] {
+        +methodeC()
+    }
+
+    class Schnittstelle12["Schnittstelle zwischen Schicht 1 und 2"] {
+        <<interface>>
+        +methodeB()
+    }
+
+    class Schnittstelle23["Schnittstelle zwischen Schicht 2 und 3"] {
+        <<interface>>
+        +methodeC()
+    }
+
+    Schicht1 ..> Schicht2: verwendet
+    Schicht2 ..> Schicht3: verwendet
+
+    Schicht1 ..> Schnittstelle12: benötigt
+    Schnittstelle12 <|-- Schicht2: implementiert
+
+    Schicht2 ..> Schnittstelle23: benötigt
+    Schnittstelle23 <|-- Schicht3: implementiert
+
+    style Schnittstelle12 fill:white
+    style Schnittstelle23 fill:white

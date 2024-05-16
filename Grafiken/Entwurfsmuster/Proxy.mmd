@@ -1,0 +1,37 @@
+classDiagram
+
+    direction LR
+
+    class Nutzer {
+
+    }
+
+    class Schnittstelle {
+        <<interface>>
+        +methodeA()
+        +methodeB()
+        +methodeC()
+    }
+
+    class Proxy["Vermittler"] {
+        +methodeA()
+        +methodeB()
+        +methodeC()
+    }
+
+    class Dienst {
+        +methodeA()
+        +methodeB()
+        +methodeC()
+    }
+
+    Nutzer ..> Schnittstelle: benötigt
+
+    Schnittstelle <|-- Proxy: implementiert
+    Schnittstelle <|-- Dienst: implementiert
+    
+    Nutzer ..> Proxy: verwendet
+
+    Proxy ..> Dienst: verwendet
+
+    style Schnittstelle fill:white

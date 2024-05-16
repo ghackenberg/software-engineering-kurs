@@ -1,0 +1,50 @@
+classDiagram
+
+    class Nutzer {
+
+    }
+
+    class Knoten {
+        <<interface>>
+        +methodeA()
+        +methodeB()
+        +methodeC()
+    }
+
+    class ZusammengesetzerKnoten["Zusammengesetzer Knoten"] {
+        +List~Knoten~ Kinder
+        +methodeA()
+        +methodeB()
+        +methodeC()
+    }
+
+    class AtomarerKnoten["Atomarer Knoten"] {
+        <<interface>>
+        +methodeA()
+        +methodeB()
+        +methodeC()
+    }
+
+    class KonkreterAtomarerKnotenA["Konkreter atomarer Knoten A"] {
+        +methodeA()
+        +methodeB()
+        +methodeC()
+    }
+
+    class KonkreterAtomarerKnotenB["Konkreter atomarer Knoten B"] {
+        +methodeA()
+        +methodeB()
+        +methodeC()
+    }
+
+    Nutzer ..> Knoten: verwendet
+
+    Knoten <|-- ZusammengesetzerKnoten: ist ein
+    Knoten "n"--*"1" ZusammengesetzerKnoten: verwaltet
+    Knoten <|-- AtomarerKnoten: ist ein
+
+    AtomarerKnoten <|-- KonkreterAtomarerKnotenA: ist ein
+    AtomarerKnoten <|-- KonkreterAtomarerKnotenB: ist ein
+
+    style Knoten fill:white
+    style AtomarerKnoten fill:white

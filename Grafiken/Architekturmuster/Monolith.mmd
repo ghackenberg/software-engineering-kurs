@@ -1,0 +1,33 @@
+classDiagram
+
+    class Nutzer {
+
+    }
+
+    namespace Monolith {
+
+        class Funktion1["Funktion 1"] {
+            +ausführen()
+        }
+
+        class FunktionX["Funktion ..."] {
+            +ausführen()
+        }
+
+        class FunktionN["Funktion N"] {
+            +ausführen()
+        }
+
+        class Daten {
+
+        }
+
+    }
+
+    Nutzer ..> Funktion1: verwendet<br/>(optional)
+    Nutzer ..> FunktionX: verwendet<br/>(optional)
+    Nutzer ..> FunktionN: verwendet<br/>(optional)
+
+    Funktion1 ..> Daten: verwendet
+    FunktionX ..> Daten: verwendet
+    FunktionN ..> Daten: verwendet

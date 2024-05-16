@@ -1,0 +1,36 @@
+classDiagram
+
+    class Nutzer {
+
+    }
+
+    class Gegenstand {
+        -List~Beobachter~ Sammlung
+        +anmelden(beobachter Beobachter)
+        +abmelden(beobachter Beobachter)
+        +benachrichtigen()
+    }
+
+    class Beobachter {
+        <<interface>>
+        +aktualisieren()
+    }
+
+    class KonkreterBeobachterA {
+        +aktualisieren()
+    }
+
+    class KonkreterBeobachterB {
+        +aktualisieren()
+    }
+
+    Nutzer ..> Gegenstand: verwendet
+    Nutzer ..> Beobachter: verwendet
+
+    Gegenstand *--"n" Beobachter: verwaltet
+    Gegenstand ..> Beobachter: aktualisiert
+
+    Beobachter <|-- KonkreterBeobachterA: implementiert
+    Beobachter <|-- KonkreterBeobachterB: implementiert
+
+    style Beobachter fill:white
